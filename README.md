@@ -4,3 +4,4 @@ If you want to use run.sh to run the application you must be in a Linux operatin
 
 Use "run.sh start" to start the application or "run.sh stop" to stop it. 
 
+To import the project in IntelliJ use File -> New -> Project from Version Control...

@@ -33,15 +33,15 @@ public class RoomOptimizationService {
         }
         if(usagePremium < premiumRooms && usageEconomy == economyRooms){
             ArrayList<Guest> filteredGuests = (ArrayList<Guest>) guests.stream().filter(w -> w.getWillingnessToPay() < 100).collect(Collectors.toList());
-            int freeEconomyRooms = premiumRooms - usagePremium;
-            for(int i = 0; i < freeEconomyRooms; i++){
+            int freePremiumRooms = premiumRooms - usagePremium;
+            for(int i = 0; i < freePremiumRooms; i++){
                 usagePremium++;
                 revenuePremium += filteredGuests.get(i).getWillingnessToPay();
             }
 
             revenueEconomy = 0;
             usageEconomy = 0;
-            for(int i = freeEconomyRooms; i < filteredGuests.size(); i++){
+            for(int i = freePremiumRooms; i < filteredGuests.size(); i++){
                 usageEconomy++;
                 revenueEconomy += filteredGuests.get(i).getWillingnessToPay();
                 if (usageEconomy == economyRooms) {
